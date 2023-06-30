@@ -1,11 +1,10 @@
 export default class Currency {
-    static currencyExecutor(type) {
+    static currencyExecutor(baseCurrency) {
         const apiKey = process.env.API_KEY;
-        let dollarType = type;
         return fetch(
-            `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${dollarType}`
+            `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`
         ).then(function (response) {
-            if (response.ok != true) {
+            if (response.ok !== true) {
                 const errorMessage = `${response.status} ${response.statusText}`;
                 throw new Error(errorMessage);
             } else {
