@@ -1,46 +1,37 @@
-//This is the main JS file - Not recommended to delete imports.
 import './assets/images/SC.png';
 import './assets/fonts.css';
 import './css/styles.css';
-import Currency from './currency.js';
-//EX: import Blank from '/.js/secondary.js';
-//Business Logic
-function currencyExecutor(baseCurrency) {
+import Currency from './currency';
+
+
+function currencyExecutor(baseCurrency, amount, exchangeCurrency) {
     Currency.currencyExecutor(baseCurrency)
         .then(function (response) {
-            if (response.main) {
-                console.log(response, baseCurrency);
+            const conversionRates = response.conversion_rates;
+            if (conversionRates) {
+                const conversionRate = conversionRates[exchangeCurrency];
+                if (!conversionRate) {
+                    console.log(`Conversion rate for ${exchangeCurrency} not found.`);
+                    return;
+                }
             } else {
-                console.log(response, baseCurrency);
+                console.log(response);
             }
         });
 }
 
-//currencyExecutor("USD", 200, "AMD");
-
-
-
-
-
-
-
-
-
-
-
 function submission(event) {
     event.preventDefault();
     const baseCurrency = document.getElementById("baseCurrency").value;
-    
+    const amount = parseFloat(document.getElementById("amount").value);
+    const exchangeCurrency = document.getElementById("exchangeCurrency").value;
 
     currencyExecutor(baseCurrency, amount, exchangeCurrency);
 }
 
-
-
 window.addEventListener("load", function () {
-    this.document.querySelector("form").addEventListener("submit", submission)
-})
+    document.querySelector("form").addEventListener("submit", submission);
+});
 
 
 
@@ -56,11 +47,3 @@ window.addEventListener("load", function () {
 
 
 
-
-
-
-
-
-
-
-//UI Logic
