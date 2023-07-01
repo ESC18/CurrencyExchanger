@@ -26,7 +26,7 @@
 * Visual Studio Code
 
 ## Description of Application:
-Put description of project here
+This web application is a Currency converter, you can input any currency code (EX: USD) and state how much of said currency you want to convert (EX:200) and then convert it to another currency (EX: EUR) to get a result in how much of said currency you would have from converting your initial currency.
 
 ## Setup and installation requirements/guide:
 1. First download the repository _"blank"_ to your device.
