@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hello world 🌎</title>
+    <title>Currency Converter</title>
     <link rel="icon" type="image/x-icon" href="assets/images/SC.png">
 </head>
 <body>
-    <form>
-        <input type="text" placeholder="Base Currency:" id="baseCurrency">
-        <input type="number" placeholder="Base Amount" id="amount">
-        <input type="text" placeholder="Exchange Currency" id="exchangeCurrency">
-        <button type="submit">Submit</button>
-    </form>
-    <div id="result"></div>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <form>
+            <input type="text" id="baseCurrency" placeholder="Base Currency (e.g., USD)">
+            <input type="number" id="amount" placeholder="Base Amount">
+            <input type="text" id="exchangeCurrency" placeholder="Exchange Currency (e.g., EUR)">
+            <button type="submit">Convert</button>
+        </form>
+        <div id="error"></div>
+        <div id="result"></div>
+    </div>
 </body>
 </html>
