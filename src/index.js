@@ -9,24 +9,24 @@ function currencyExecutor(baseCurrency, amount, exchangeCurrency) {
         .then(function (response) {
             const conversionRates = response.conversion_rates;
             if (conversionRates) {
-                const conversionRate = conversionRates[exchangeCurrency];
-                if (!conversionRate) {
+                const conversionRateNumber = conversionRates[exchangeCurrency];
+                if (!conversionRateNumber) {
                     throw new Error(`Conversion rate for "${exchangeCurrency}" not found.`);
                 }
-                return amount * conversionRate;
+                return amount * conversionRateNumber;
             } else {
                 throw new Error('Response does not contain conversion rates.');
             }
         })
         .catch(function (error) {
-            displayError(`There is an error: ${error}`);
+            displayError(error);
         });
 }
 
 // UI Logic
-function displayError(message) {
+function displayError(error) {
     const resultElement = document.getElementById("result");
-    resultElement.innerText = message;
+    resultElement.innerText = error;
 }
 
 function submission(event) {

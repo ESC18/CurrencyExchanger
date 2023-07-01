@@ -4,6 +4,18 @@
     border: 0;
 }
 
+@keyframes rotateColor {
+    from {
+        transform: translate(-50%,-50%) rotate(0deg);
+        background-position: 0% 0%;
+    }
+
+    to {
+        transform: translate(-50%,-50%) rotate(360deg);
+        background-position: 300% 0%;
+    }
+}
+
 body {
     background-color: #151515;
     color: whitesmoke;
@@ -11,3 +23,87 @@ body {
     font-size: 30px;
 }
 
+.container {
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.background {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.background::before {
+    content: '';
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 10vw;
+    height: 100vh;
+    animation: rotateColor;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    background: linear-gradient(-90deg, #F3B700, #F18701, #DF2935, #961f01, #DF2935, #F18701, #F3B700);
+    background-size: 300% 100%;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    background-color: #151515;
+    inset: 10px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+input[type="text"],
+input[type="number"] {
+    display: block;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff7700;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7700;
+}
