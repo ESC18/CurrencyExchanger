@@ -36,7 +36,7 @@ This web application is a Currency converter, you can input any currency code (E
 5. Build the project using webpack with _$ npm run build_
 6. Starting a development server with _$ npm run start_
 7. Lint JS files in the src folder with _$ npm run lint_
-8. Create a .env file with a variable of _API_KEY_ inside of it
+8. Create a .env file with a variable of _API_KEY_ inside of it. Make sure the .env file is within the root of your directory
 9. Create a .gitignore file and add the appropiate files/folders to it as well as the .env file
 10. Sign up for an API Key at _https://www.exchangerate-api.com/_ and give the _API_KEY_ variable from within the .env file the value of the key you recieved from exchangerate-api.com.
 
